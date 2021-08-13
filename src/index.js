@@ -54,7 +54,7 @@ class Game extends React.Component {
         squares: Array(9).fill(null),
       }],
       xIsNext: true,
-      squaresFilled: 0,
+      stepNumber: 0,
     }
   }
 
@@ -62,7 +62,7 @@ class Game extends React.Component {
     const history = this.state.history;
     const current = history[history.length - 1];
     const squares = current.squares.slice();
-    const squaresFilled = this.state.squaresFilled + 1;
+    const stepNumber = this.state.stepNumber + 1;
     if (calculateWinner(squares) || squares[i]) {
       return;
     }
@@ -72,7 +72,7 @@ class Game extends React.Component {
         squares: squares,
       }]),
       xIsNext: !this.state.xIsNext,
-      squaresFilled: squaresFilled,
+      stepNumber: stepNumber,
     });
   }
   
@@ -97,7 +97,7 @@ class Game extends React.Component {
     if(winner) {
       status = 'Winner: ' + winner;
     } else {
-      if (this.state.squaresFilled === 9) {
+      if (this.state.stepNumber === 9) {
         status = 'Draw!';
       } else {
         status = 'Next player: ' + (this.state.xIsNext ? 'X' : 'O');
