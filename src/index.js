@@ -62,7 +62,6 @@ class Game extends React.Component {
 // ========================================
 
 ReactDOM.render(
-  <h1>Tic-tac-toe Game</h1>,
   <Game />,
   document.getElementById('root')
 );
