@@ -81,6 +81,7 @@ class Game extends React.Component {
     const current = history[history.length - 1];
     const winner = calculateWinner(current.squares);
     
+    // map the history of moves to a list of buttons
     const moves = history.map((step, move) => {
       const desc = move ?
         'Go to move #' + move :
