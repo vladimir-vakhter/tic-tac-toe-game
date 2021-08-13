@@ -106,7 +106,6 @@ class Game extends React.Component {
     return (
       <div>
         <h>Tic-Tac-Toe Game</h>
-        <div className="status">{status}</div>
         <div className="game">
           <div className="game-board">
             <Board 
@@ -115,7 +114,7 @@ class Game extends React.Component {
             />
           </div>
           <div className="game-info">
-            <div>{/* status */}</div>
+            <div>{status}</div>
             <ol>{moves}</ol>
           </div>
         </div>
