@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 
+// renders a simple button 
 class Square extends React.Component {
   render() {
     return (
@@ -12,6 +13,7 @@ class Square extends React.Component {
   }
 }
 
+// renders 9 squares
 class Board extends React.Component {
   renderSquare(i) {
     return <Square />;
@@ -22,6 +24,7 @@ class Board extends React.Component {
 
     return (
       <div>
+        <h>Tic-Tac-Toe Game</h>
         <div className="status">{status}</div>
         <div className="board-row">
           {this.renderSquare(0)}
@@ -43,6 +46,7 @@ class Board extends React.Component {
   }
 }
 
+// renders a board with placeholder values
 class Game extends React.Component {
   render() {
     return (
