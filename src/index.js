@@ -3,17 +3,12 @@ import ReactDOM from 'react-dom';
 import './index.css';
 
 // renders a simple button 
-class Square extends React.Component {
-  render() {
+function Square(props) {
     return (
-      <button 
-        className="square"
-        onClick={ () => { this.props.onClick() }}
-      >
-        {this.props.value}
+      <button className="square" onClick={props.onClick}>
+        {props.value}
       </button>
     );
-  }
 }
 
 // renders 9 squares
