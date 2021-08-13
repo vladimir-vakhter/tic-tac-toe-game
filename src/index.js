@@ -17,6 +17,7 @@ class Board extends React.Component {
     super(props);
     this.state = {
       squares: Array(9).fill(null),
+      squaresFilled: 0,
       xIsNext: true,
     }
   }
@@ -26,9 +27,11 @@ class Board extends React.Component {
     if (calculateWinner(squares) || squares[i]) {
       return;
     }
+    const squaresFilled = this.state.squaresFilled + 1;
     squares[i] = this.state.xIsNext ? 'X' : 'O';
     this.setState({
       squares: squares,
+      squaresFilled: squaresFilled,
       xIsNext: !this.state.xIsNext,
     });
   }
@@ -48,7 +51,11 @@ class Board extends React.Component {
     if(winner) {
       status = 'Winner: ' + winner;
     } else {
-      status = 'Next player: ' + (this.state.xIsNext ? 'X' : 'O');
+      if (this.state.squaresFilled === 9) {
+        status = 'Draw!';
+      } else {
+        status = 'Next player: ' + (this.state.xIsNext ? 'X' : 'O');
+      }
     }
 
     return (
